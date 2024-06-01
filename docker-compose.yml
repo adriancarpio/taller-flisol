@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  Api-Rest:
+    build:
+      context: ./ApiRest-taller-flisol-2024
+      dockerfile: Dockerfile
+    image: Api-Rest:1.0
+    container_name: ApiRest-taller-flisol-2024
+    ports:
+      - "9595:9595"
+    restart: always
+    #Define la polotica de reinicio del contenedor. always significa que el contenedor siempre se reiniciara si se detiene.
+    networks:
+      - j-network 
+      #Define las redes a las que el contenedor estara conectado. Aqui, el contenedor estara conectado a la red
+networks: 
+#Define las redes que se crearan y configuraran
+  j-network:
+  #Especifica una red llamada j-network.
+    driver: bridge
+    #Utiliza el controlador de red bridge, que es el predeterminado en Docker. Las redes bridge permiten que los contenedores se comuniquen entre si en una red aislada.

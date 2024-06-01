@@ -43,9 +43,4 @@ public class CuentaServiceImpl extends CRUDImpl<Cuenta, Long> implements ICuenta
             return repo.save(obj);
         });
 	}
-
-	@Override
-	public Cuenta getCuentaByNumero(String numeroCuenta) {
-		return repo.getCuentaByNumero(numeroCuenta);
-	}
 }
